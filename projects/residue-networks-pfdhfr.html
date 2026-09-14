@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Residue Interaction Networks in PfDHFR | Danny Muzata</title>
+<meta name="description" content="Danny Muzata's graph-theoretic analysis of molecular-dynamics-derived residue interaction networks across PfDHFR genotypes, testing an epistatic 'ridge' hypothesis in antifolate resistance.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Danny Muzata">
+
+<link rel="canonical" href="https://danmuzata.github.io/projects/residue-networks-pfdhfr.html">
+<link rel="author" href="https://danmuzata.github.io/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Residue Interaction Networks in PfDHFR | Danny Muzata">
+<meta property="og:description" content="Graph-theoretic analysis of MD-derived residue interaction networks across PfDHFR genotypes, testing an epistatic 'ridge' hypothesis in antifolate resistance.">
+<meta property="og:url" content="https://danmuzata.github.io/projects/residue-networks-pfdhfr.html">
+<meta property="og:site_name" content="Danny Muzata">
+<meta property="og:image" content="https://danmuzata.github.io/assets/images/pfdhfr-structure.png">
+<meta property="og:image:type" content="image/png">
+<meta property="article:author" content="https://danmuzata.github.io/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Residue Interaction Networks in PfDHFR | Danny Muzata">
+<meta name="twitter:description" content="Graph-theoretic analysis of MD-derived residue networks across PfDHFR genotypes.">
+<meta name="twitter:image" content="https://danmuzata.github.io/assets/images/pfdhfr-structure.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://danmuzata.github.io/#person",
+      "name": "Danny Muzata",
+      "url": "https://danmuzata.github.io/",
+      "image": "https://danmuzata.github.io/assets/images/headshot-share.jpg",
+      "jobTitle": "Biomedical Data Scientist",
+      "affiliation": [{ "@type": "CollegeOrUniversity", "name": "BITS Pilani, Hyderabad Campus" }],
+      "sameAs": [
+        "https://scholar.google.com/citations?user=PciYrvsAAAAJ&hl=en",
+        "https://github.com/danmuzata",
+        "https://www.linkedin.com/in/danny-muzata",
+        "https://orcid.org/0000-0003-0023-9233",
+        "https://x.com/DMMuzata",
+        "https://www.facebook.com/danny.muzata",
+        "https://onehealthtrust.org/profile/phd-students/danny-muzata/",
+        "https://www.bits-pilani.ac.in/research_scholars/danny-muzata/"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://danmuzata.github.io/projects/residue-networks-pfdhfr.html#webpage",
+      "url": "https://danmuzata.github.io/projects/residue-networks-pfdhfr.html",
+      "name": "Residue Interaction Networks in PfDHFR | Danny Muzata",
+      "description": "Graph-theoretic analysis of MD-derived residue interaction networks across PfDHFR genotypes, testing an epistatic 'ridge' hypothesis in antifolate resistance.",
+      "author": { "@id": "https://danmuzata.github.io/#person" },
+      "isPartOf": { "@type": "WebSite", "@id": "https://danmuzata.github.io/#website", "url": "https://danmuzata.github.io/", "name": "Danny Muzata" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://danmuzata.github.io/projects/residue-networks-pfdhfr.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Danny Muzata", "item": "https://danmuzata.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Residue Interaction Networks in PfDHFR", "item": "https://danmuzata.github.io/projects/residue-networks-pfdhfr.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+<nav aria-label="Primary navigation">
+  <a href="https://danmuzata.github.io/">Danny Muzata</a>
+  <a href="https://danmuzata.github.io/#research">Research</a>
+  <a href="https://danmuzata.github.io/#publications">Publications</a>
+  <a href="https://danmuzata.github.io/#contact">Contact</a>
+</nav>
+
+<main>
+<div class="project-hero">
+
+  <p class="project-subtitle">In preparation &middot; Chowdhury Lab, BITS Pilani Hyderabad</p>
+
+  <h1>Residue Interaction Networks in PfDHFR: Testing an Epistatic "Ridge" Hypothesis</h1>
+
+  <p class="project-authors">Danny Muzata &bull; Dr. Sourav Chowdhury</p>
+
+  <div class="project-tags">
+    <span>Graph Theory</span>
+    <span>Residue Networks</span>
+    <span>Molecular Dynamics</span>
+    <span>Epistasis</span>
+    <span>PfDHFR</span>
+    <span>Network Robustness</span>
+  </div>
+
+</div>
+
+<section>
+
+  <div class="card">
+    <h2>Overview</h2>
+
+    <p>
+      Fitness-landscape modelling of PfDHFR points to a small set of "ridge" residues &mdash;
+      network hubs proposed to act as compensatory or robustness elements that channel
+      evolution along predictable mutational routes. This project tests that hypothesis
+      directly against structural dynamics: building time-resolved residue interaction
+      networks from molecular dynamics trajectories of wild-type and mutant PfDHFR, then
+      asking whether those same positions behave like structural hubs.
+    </p>
+
+    <p>
+      Each genotype's MD trajectory is converted into a series of residue&ndash;residue
+      interaction graphs (contact-occupancy, dynamic cross-correlation, and hybrid
+      networks), across which graph-theoretic properties &mdash; centrality, community
+      structure, embeddings, and robustness to simulated "attack" &mdash; are compared
+      across wild type and resistance-associated mutants.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Key Highlights</h2>
+
+    <ul>
+      <li>Time-resolved residue interaction networks built from all-atom MD across multiple PfDHFR genotypes</li>
+      <li>Multiple graph representations: contact-occupancy, dynamic cross-correlation, and hybrid networks</li>
+      <li>Centrality, community detection, graph embeddings, and network robustness/attack-tolerance analysis</li>
+      <li>Permutation-based null models to statistically test observed network differences</li>
+      <li>Directly tests the epistatic "ridge" concept from the fitness-landscape model against real structural dynamics</li>
+      <li>Feeds forward into graph-based deep learning approaches for the folate metabolic pathway</li>
+    </ul>
+  </div>
+
+  <div class="card" id="lead-author">
+    <h2>Researcher</h2>
+
+    <img src="../assets/images/headshot-small.jpg"
+         alt="Portrait of Danny Muzata"
+         width="120" height="120" loading="lazy" decoding="async"
+         style="border-radius:3px; max-width:120px; height:auto;">
+
+    <p>
+      Led by <a href="https://danmuzata.github.io/" rel="author">Danny Muzata</a> in the
+      <a href="https://sites.google.com/view/evosysbiophysics/home" target="_blank" rel="noopener noreferrer">Chowdhury Lab</a>, Dept. of Biological Sciences, BITS Pilani Hyderabad Campus &mdash; part
+      of the wider <a href="pfdhfr-fitness-landscape.html">PfDHFR fitness-landscape research
+      programme</a>.
+    </p>
+
+    <p>
+      <a href="https://scholar.google.com/citations?user=PciYrvsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://orcid.org/0000-0003-0023-9233" target="_blank" rel="noopener noreferrer">ORCID</a>
+    </p>
+  </div>
+
+</section>
+</main>
+
+<footer>
+  © 2026 <a href="https://danmuzata.github.io/" rel="author">Danny Muzata</a>
+</footer>
+
+</body>
+</html>

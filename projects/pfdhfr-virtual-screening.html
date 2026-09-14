@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Structure-Based Virtual Screening of PfDHFR | Danny Muzata</title>
+<meta name="description" content="Danny Muzata's structure-based virtual screening project targeting a cryptic allosteric pocket in Plasmodium falciparum DHFR, applying docking and free-energy scoring to antimalarial drug discovery.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Danny Muzata">
+
+<link rel="canonical" href="https://danmuzata.github.io/projects/pfdhfr-virtual-screening.html">
+<link rel="author" href="https://danmuzata.github.io/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Structure-Based Virtual Screening of PfDHFR | Danny Muzata">
+<meta property="og:description" content="Structure-based virtual screening targeting a cryptic allosteric pocket in Plasmodium falciparum DHFR.">
+<meta property="og:url" content="https://danmuzata.github.io/projects/pfdhfr-virtual-screening.html">
+<meta property="og:site_name" content="Danny Muzata">
+<meta property="og:image" content="https://danmuzata.github.io/assets/images/pfdhfr-structure.png">
+<meta property="og:image:type" content="image/png">
+<meta property="article:author" content="https://danmuzata.github.io/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Structure-Based Virtual Screening of PfDHFR | Danny Muzata">
+<meta name="twitter:description" content="Structure-based virtual screening targeting a cryptic allosteric pocket in PfDHFR.">
+<meta name="twitter:image" content="https://danmuzata.github.io/assets/images/pfdhfr-structure.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://danmuzata.github.io/#person",
+      "name": "Danny Muzata",
+      "url": "https://danmuzata.github.io/",
+      "image": "https://danmuzata.github.io/assets/images/headshot-share.jpg",
+      "jobTitle": "Biomedical Data Scientist",
+      "affiliation": [{ "@type": "CollegeOrUniversity", "name": "BITS Pilani, Hyderabad Campus" }],
+      "sameAs": [
+        "https://scholar.google.com/citations?user=PciYrvsAAAAJ&hl=en",
+        "https://github.com/danmuzata",
+        "https://www.linkedin.com/in/danny-muzata",
+        "https://orcid.org/0000-0003-0023-9233",
+        "https://x.com/DMMuzata",
+        "https://www.facebook.com/danny.muzata",
+        "https://onehealthtrust.org/profile/phd-students/danny-muzata/",
+        "https://www.bits-pilani.ac.in/research_scholars/danny-muzata/"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://danmuzata.github.io/projects/pfdhfr-virtual-screening.html#webpage",
+      "url": "https://danmuzata.github.io/projects/pfdhfr-virtual-screening.html",
+      "name": "Structure-Based Virtual Screening of PfDHFR | Danny Muzata",
+      "description": "Structure-based virtual screening targeting a cryptic allosteric pocket in Plasmodium falciparum DHFR.",
+      "author": { "@id": "https://danmuzata.github.io/#person" },
+      "isPartOf": { "@type": "WebSite", "@id": "https://danmuzata.github.io/#website", "url": "https://danmuzata.github.io/", "name": "Danny Muzata" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://danmuzata.github.io/projects/pfdhfr-virtual-screening.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Danny Muzata", "item": "https://danmuzata.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "PfDHFR Virtual Screening", "item": "https://danmuzata.github.io/projects/pfdhfr-virtual-screening.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+<nav aria-label="Primary navigation">
+  <a href="https://danmuzata.github.io/">Danny Muzata</a>
+  <a href="https://danmuzata.github.io/#research">Research</a>
+  <a href="https://danmuzata.github.io/#publications">Publications</a>
+  <a href="https://danmuzata.github.io/#contact">Contact</a>
+</nav>
+
+<main>
+<div class="project-hero">
+
+  <p class="project-subtitle">Ongoing &middot; Chowdhury Lab, BITS Pilani Hyderabad</p>
+
+  <h1>Structure-Based Virtual Screening of a Cryptic Allosteric Pocket in PfDHFR</h1>
+
+  <p class="project-authors">Danny Muzata &bull; Dr. Sourav Chowdhury</p>
+
+  <div class="project-tags">
+    <span>Virtual Screening</span>
+    <span>Molecular Docking</span>
+    <span>Free-Energy Scoring</span>
+    <span>Antimalarial Drug Discovery</span>
+    <span>PfDHFR</span>
+  </div>
+
+</div>
+
+<section>
+
+  <div class="card">
+    <h2>Overview</h2>
+
+    <p>
+      Most antifolate drugs target the orthosteric folate-binding site of PfDHFR &mdash;
+      the same site where resistance mutations accumulate. Building on the fitness-landscape
+      and residue-network analyses of PfDHFR, this project develops a structure-based virtual
+      screening pipeline targeting an allosteric, cryptic pocket identified from extensive
+      molecular dynamics simulations of wild-type and resistant PfDHFR &mdash; a site less
+      likely to already be under resistance-driven selection pressure.
+    </p>
+
+    <p>
+      The pipeline combines pocket detection across MD ensembles, molecular docking of
+      candidate compound libraries, physics-based free-energy rescoring, and ADMET
+      filtering to prioritise chemical starting points for antimalarial inhibitor
+      development. It was developed as an application project for the Prognica Research
+      Fellows Program 2026.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Key Highlights</h2>
+
+    <ul>
+      <li>Pocket detection across molecular dynamics ensembles of multiple PfDHFR genotypes</li>
+      <li>Targets a cryptic, allosteric pocket distinct from the orthosteric resistance-mutation site</li>
+      <li>Structure-based docking with physics-based free-energy rescoring (MM-GBSA-style methods)</li>
+      <li>ADMET-based filtering of candidate compounds</li>
+      <li>Builds directly on the fitness-landscape and residue-network characterisation of PfDHFR</li>
+    </ul>
+  </div>
+
+  <div class="card" id="lead-author">
+    <h2>Researcher</h2>
+
+    <img src="../assets/images/headshot-small.jpg"
+         alt="Portrait of Danny Muzata"
+         width="120" height="120" loading="lazy" decoding="async"
+         style="border-radius:3px; max-width:120px; height:auto;">
+
+    <p>
+      Led by <a href="https://danmuzata.github.io/" rel="author">Danny Muzata</a> in the
+      <a href="https://sites.google.com/view/evosysbiophysics/home" target="_blank" rel="noopener noreferrer">Chowdhury Lab</a>, Dept. of Biological Sciences, BITS Pilani Hyderabad Campus &mdash; part
+      of the wider <a href="pfdhfr-fitness-landscape.html">PfDHFR fitness-landscape research
+      programme</a>.
+    </p>
+
+    <p>
+      <a href="https://scholar.google.com/citations?user=PciYrvsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://orcid.org/0000-0003-0023-9233" target="_blank" rel="noopener noreferrer">ORCID</a>
+    </p>
+  </div>
+
+</section>
+</main>
+
+<footer>
+  © 2026 <a href="https://danmuzata.github.io/" rel="author">Danny Muzata</a>
+</footer>
+
+</body>
+</html>

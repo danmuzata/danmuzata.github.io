@@ -2,35 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://rahmanraziur.github.io/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://danmuzata.github.io/</loc>
+    <lastmod>2026-09-14</lastmod>
   </url>
 
   <url>
-    <loc>https://rahmanraziur.github.io/projects/flexiframe.html</loc>
+    <loc>https://danmuzata.github.io/projects/pfdhfr-fitness-landscape.html</loc>
+    <lastmod>2026-09-14</lastmod>
   </url>
 
   <url>
-    <loc>https://rahmanraziur.github.io/projects/tara.html</loc>
+    <loc>https://danmuzata.github.io/projects/residue-networks-pfdhfr.html</loc>
+    <lastmod>2026-09-14</lastmod>
   </url>
 
   <url>
-    <loc>https://rahmanraziur.github.io/projects/ascp.html</loc>
+    <loc>https://danmuzata.github.io/projects/protein-ligand-interaction-modelling.html</loc>
+    <lastmod>2026-09-14</lastmod>
   </url>
 
   <url>
-    <loc>https://rahmanraziur.github.io/projects/pmas.html</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://danmuzata.github.io/projects/pfdhfr-virtual-screening.html</loc>
+    <lastmod>2026-09-14</lastmod>
   </url>
 
   <url>
-    <loc>https://rahmanraziur.github.io/focus/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://danmuzata.github.io/projects/dhps-evolvability.html</loc>
+    <lastmod>2026-09-14</lastmod>
   </url>
 
   <url>
-    <loc>https://rahmanraziur.github.io/projects/marc-6tisch.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <loc>https://danmuzata.github.io/projects/muc1c-adc.html</loc>
+    <lastmod>2026-09-14</lastmod>
   </url>
+
+  <url>
+    <loc>https://danmuzata.github.io/projects/membrane-protein-dynamics.html</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+
+  <url>
+    <loc>https://danmuzata.github.io/projects/rl-adaptive-evolution.html</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+
 
 </urlset>

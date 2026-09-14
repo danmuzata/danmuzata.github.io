@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reinforcement Learning for Adaptive Evolution | Danny Muzata</title>
+<meta name="description" content="Danny Muzata's ongoing research exploring reinforcement learning approaches for modelling adaptive mutational pathways in protein evolution.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Danny Muzata">
+
+<link rel="canonical" href="https://danmuzata.github.io/projects/rl-adaptive-evolution.html">
+<link rel="author" href="https://danmuzata.github.io/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reinforcement Learning for Adaptive Evolution | Danny Muzata">
+<meta property="og:description" content="Exploring reinforcement learning approaches for modelling adaptive mutational pathways in protein evolution.">
+<meta property="og:url" content="https://danmuzata.github.io/projects/rl-adaptive-evolution.html">
+<meta property="og:site_name" content="Danny Muzata">
+<meta property="og:image" content="https://danmuzata.github.io/assets/images/headshot-share.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="article:author" content="https://danmuzata.github.io/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reinforcement Learning for Adaptive Evolution | Danny Muzata">
+<meta name="twitter:description" content="Reinforcement learning approaches for adaptive mutational pathway modelling in protein evolution.">
+<meta name="twitter:image" content="https://danmuzata.github.io/assets/images/headshot-share.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://danmuzata.github.io/#person",
+      "name": "Danny Muzata",
+      "url": "https://danmuzata.github.io/",
+      "image": "https://danmuzata.github.io/assets/images/headshot-share.jpg",
+      "jobTitle": "Biomedical Data Scientist",
+      "affiliation": [{ "@type": "CollegeOrUniversity", "name": "BITS Pilani, Hyderabad Campus" }],
+      "sameAs": [
+        "https://scholar.google.com/citations?user=PciYrvsAAAAJ&hl=en",
+        "https://github.com/danmuzata",
+        "https://www.linkedin.com/in/danny-muzata",
+        "https://orcid.org/0000-0003-0023-9233",
+        "https://x.com/DMMuzata",
+        "https://www.facebook.com/danny.muzata",
+        "https://onehealthtrust.org/profile/phd-students/danny-muzata/",
+        "https://www.bits-pilani.ac.in/research_scholars/danny-muzata/"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://danmuzata.github.io/projects/rl-adaptive-evolution.html#webpage",
+      "url": "https://danmuzata.github.io/projects/rl-adaptive-evolution.html",
+      "name": "Reinforcement Learning for Adaptive Evolution | Danny Muzata",
+      "description": "Exploring reinforcement learning approaches for modelling adaptive mutational pathways in protein evolution.",
+      "author": { "@id": "https://danmuzata.github.io/#person" },
+      "isPartOf": { "@type": "WebSite", "@id": "https://danmuzata.github.io/#website", "url": "https://danmuzata.github.io/", "name": "Danny Muzata" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://danmuzata.github.io/projects/rl-adaptive-evolution.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Danny Muzata", "item": "https://danmuzata.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "RL for Adaptive Evolution", "item": "https://danmuzata.github.io/projects/rl-adaptive-evolution.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+<nav aria-label="Primary navigation">
+  <a href="https://danmuzata.github.io/">Danny Muzata</a>
+  <a href="https://danmuzata.github.io/#research">Research</a>
+  <a href="https://danmuzata.github.io/#publications">Publications</a>
+  <a href="https://danmuzata.github.io/#contact">Contact</a>
+</nav>
+
+<main>
+<div class="project-hero">
+
+  <p class="project-subtitle">Ongoing &middot; Upadhyay Lab, Dept. of CSIS, BITS Pilani Hyderabad</p>
+
+  <h1>Reinforcement Learning for Adaptive Mutational Pathway Modelling</h1>
+
+  <p class="project-authors">Danny Muzata &bull; Dr. Prajna D. Upadhyay</p>
+
+  <div class="project-tags">
+    <span>Reinforcement Learning</span>
+    <span>Evolutionary Dynamics</span>
+    <span>Mutational Pathways</span>
+    <span>Machine Learning</span>
+  </div>
+
+</div>
+
+<section>
+
+  <div class="card">
+    <h2>Overview</h2>
+
+    <p>
+      Adaptive evolution under selection can be framed as a sequential decision process:
+      at each step, a population "chooses" among available mutations, and the choice that
+      maximises long-term fitness is not always the one that looks best immediately &mdash;
+      a landscape can be rugged, with fitness valleys that must be crossed to reach a
+      higher peak.
+    </p>
+
+    <p>
+      This ongoing project, carried out in collaboration with the <a href="https://www.prajnaupadhyay.com/" target="_blank" rel="noopener noreferrer">Upadhyay Lab</a> (Dept. of
+      CSIS), explores reinforcement learning formulations of this problem &mdash; treating
+      genotypes as states, mutations as actions, and fitness as reward &mdash; to model and
+      predict adaptive mutational trajectories, complementing the fitness-landscape work
+      on PfDHFR and DHPS carried out in the <a href="https://sites.google.com/view/evosysbiophysics/home" target="_blank" rel="noopener noreferrer">Chowdhury Lab</a>.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Key Directions</h2>
+
+    <ul>
+      <li>Formulating protein sequence space as a Markov decision process over mutations</li>
+      <li>Learning policies that reproduce empirically observed adaptive walks</li>
+      <li>Connecting RL-predicted trajectories to epistatic fitness-landscape models</li>
+      <li>Presented in part at the Graduate Forum, IndoML 2025</li>
+    </ul>
+  </div>
+
+  <div class="card" id="lead-author">
+    <h2>Researcher</h2>
+
+    <img src="../assets/images/headshot-small.jpg"
+         alt="Portrait of Danny Muzata"
+         width="120" height="120" loading="lazy" decoding="async"
+         style="border-radius:3px; max-width:120px; height:auto;">
+
+    <p>
+      Led by <a href="https://danmuzata.github.io/" rel="author">Danny Muzata</a>, a
+      biomedical data scientist at BITS Pilani, Hyderabad Campus, in collaboration with
+      <a href="https://www.prajnaupadhyay.com/" target="_blank" rel="noopener noreferrer">Dr. Prajna D. Upadhyay</a>'s group in the Dept. of CSIS.
+    </p>
+
+    <p>
+      <a href="https://scholar.google.com/citations?user=PciYrvsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://orcid.org/0000-0003-0023-9233" target="_blank" rel="noopener noreferrer">ORCID</a>
+    </p>
+  </div>
+
+</section>
+</main>
+
+<footer>
+  © 2026 <a href="https://danmuzata.github.io/" rel="author">Danny Muzata</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Protein–Ligand Interaction Modelling | Danny Muzata</title>
+<meta name="description" content="Danny Muzata's work on graph-based deep learning for protein-ligand interaction modelling, developing mutation-sensitive graph neural networks for binding prediction.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Danny Muzata">
+
+<link rel="canonical" href="https://danmuzata.github.io/projects/protein-ligand-interaction-modelling.html">
+<link rel="author" href="https://danmuzata.github.io/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Protein–Ligand Interaction Modelling | Danny Muzata">
+<meta property="og:description" content="Graph-based deep learning for protein-ligand interaction modelling, developing mutation-sensitive graph neural networks for binding prediction.">
+<meta property="og:url" content="https://danmuzata.github.io/projects/protein-ligand-interaction-modelling.html">
+<meta property="og:site_name" content="Danny Muzata">
+<meta property="og:image" content="https://danmuzata.github.io/assets/images/headshot-share.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="article:author" content="https://danmuzata.github.io/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Protein–Ligand Interaction Modelling | Danny Muzata">
+<meta name="twitter:description" content="Graph-based deep learning for protein-ligand binding prediction.">
+<meta name="twitter:image" content="https://danmuzata.github.io/assets/images/headshot-share.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://danmuzata.github.io/#person",
+      "name": "Danny Muzata",
+      "url": "https://danmuzata.github.io/",
+      "image": "https://danmuzata.github.io/assets/images/headshot-share.jpg",
+      "jobTitle": "Biomedical Data Scientist",
+      "affiliation": [{ "@type": "CollegeOrUniversity", "name": "BITS Pilani, Hyderabad Campus" }],
+      "sameAs": [
+        "https://scholar.google.com/citations?user=PciYrvsAAAAJ&hl=en",
+        "https://github.com/danmuzata",
+        "https://www.linkedin.com/in/danny-muzata",
+        "https://orcid.org/0000-0003-0023-9233",
+        "https://x.com/DMMuzata",
+        "https://www.facebook.com/danny.muzata",
+        "https://onehealthtrust.org/profile/phd-students/danny-muzata/",
+        "https://www.bits-pilani.ac.in/research_scholars/danny-muzata/"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://danmuzata.github.io/projects/protein-ligand-interaction-modelling.html#webpage",
+      "url": "https://danmuzata.github.io/projects/protein-ligand-interaction-modelling.html",
+      "name": "Protein–Ligand Interaction Modelling | Danny Muzata",
+      "description": "Graph-based deep learning for protein-ligand interaction modelling, developing mutation-sensitive graph neural networks for binding prediction.",
+      "author": { "@id": "https://danmuzata.github.io/#person" },
+      "isPartOf": { "@type": "WebSite", "@id": "https://danmuzata.github.io/#website", "url": "https://danmuzata.github.io/", "name": "Danny Muzata" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://danmuzata.github.io/projects/protein-ligand-interaction-modelling.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Danny Muzata", "item": "https://danmuzata.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Protein–Ligand Interaction Modelling", "item": "https://danmuzata.github.io/projects/protein-ligand-interaction-modelling.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+<nav aria-label="Primary navigation">
+  <a href="https://danmuzata.github.io/">Danny Muzata</a>
+  <a href="https://danmuzata.github.io/#research">Research</a>
+  <a href="https://danmuzata.github.io/#publications">Publications</a>
+  <a href="https://danmuzata.github.io/#contact">Contact</a>
+</nav>
+
+<main>
+<div class="project-hero">
+
+  <p class="project-subtitle">Ongoing &middot; Upadhyay Lab, Dept. of CSIS, BITS Pilani Hyderabad</p>
+
+  <h1>Graph-Based Deep Learning for Protein&ndash;Ligand Interaction Modelling</h1>
+
+  <p class="project-authors">Danny Muzata &bull; Dr. Prajna D. Upadhyay</p>
+
+  <div class="project-tags">
+    <span>Graph Neural Networks</span>
+    <span>Protein Language Models</span>
+    <span>Protein–Ligand Binding</span>
+    <span>Deep Learning</span>
+  </div>
+
+</div>
+
+<section>
+
+  <div class="card">
+    <h2>Overview</h2>
+
+    <p>
+      Predicting how a small molecule binds a protein target is central to structure-based
+      drug discovery, and most existing models are trained on broad, largely wild-type
+      complexes &mdash; which generalise poorly to the closely related mutant pockets that
+      matter most for drug-resistance biology. This project develops a mutation-sensitive
+      graph neural network architecture aimed at that gap: a model that can pick up on how
+      a single point mutation reshapes a binding pocket and, with it, ligand affinity.
+    </p>
+
+    <p>
+      The architecture fuses several complementary views of a protein&ndash;ligand complex
+      &mdash; protein-language-model sequence embeddings, a graph encoding of pocket
+      structure, and a graph representation of the ligand &mdash; combined through a
+      learned cross-attention fusion mechanism, and is benchmarked against standard
+      structure-based binding-affinity datasets before being applied to case studies drawn
+      from my own drug-resistance research (including antifolate binding in PfDHFR).
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Key Highlights</h2>
+
+    <ul>
+      <li>Mutation-sensitive architecture, aimed at generalising across near-identical mutant binding pockets</li>
+      <li>Multimodal fusion of sequence, pocket-structure, and ligand-graph representations via cross-attention</li>
+      <li>Benchmarked against standard structure-based protein&ndash;ligand affinity datasets</li>
+      <li>Applied to case studies in antifolate resistance drawn from my broader research programme</li>
+      <li>Developed in collaboration with the Upadhyay Lab (Dept. of CSIS)</li>
+    </ul>
+  </div>
+
+  <div class="card" id="lead-author">
+    <h2>Researcher</h2>
+
+    <img src="../assets/images/headshot-small.jpg"
+         alt="Portrait of Danny Muzata"
+         width="120" height="120" loading="lazy" decoding="async"
+         style="border-radius:3px; max-width:120px; height:auto;">
+
+    <p>
+      Led by <a href="https://danmuzata.github.io/" rel="author">Danny Muzata</a>, a
+      biomedical data scientist at BITS Pilani, Hyderabad Campus, in collaboration with
+      <a href="https://www.prajnaupadhyay.com/" target="_blank" rel="noopener noreferrer">Dr. Prajna D. Upadhyay</a>'s group in the Dept. of CSIS.
+    </p>
+
+    <p>
+      <a href="https://scholar.google.com/citations?user=PciYrvsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://orcid.org/0000-0003-0023-9233" target="_blank" rel="noopener noreferrer">ORCID</a>
+    </p>
+  </div>
+
+</section>
+</main>
+
+<footer>
+  © 2026 <a href="https://danmuzata.github.io/" rel="author">Danny Muzata</a>
+</footer>
+
+</body>
+</html>

@@ -1,41 +1,43 @@
-# Raziur Rahman — Academic Website
+# Danny Muzata — Academic Website
 
 This repository contains the source code for my personal academic website:
 
-**Website:** https://rahmanraziur.github.io
+**Website:** https://danmuzata.github.io
 
-I am a **Joint PhD Scholar at BITS Pilani, Hyderabad Campus, India, and La Trobe University, Australia**, under the **ASCRIN Joint PhD Programme**.
+I am a **Biomedical Data Scientist** working in computational and evolutionary biology
+at **BITS Pilani, Hyderabad Campus**, India — split across the **Chowdhury Lab**
+(Dept. of Biological Sciences, Evolutionary Systems Biophysics) and the
+**Upadhyay Lab** (Dept. of CSIS, ML/AI for Computational Biology).
 
-At BITS Pilani, I am affiliated with the **Department of Computer Science and Information Systems**. At La Trobe University, I am a **Graduate Researcher in Computer Science and Information Technology**.
+My research has evolved from molecular epidemiology and phylogenetic analysis of
+pathogens toward protein evolution, structural biology, and antimicrobial resistance —
+combining sequence analysis, molecular modelling, molecular dynamics, biological network
+analysis, graph-based machine learning, and reinforcement learning.
 
-My research focuses on:
+## Featured Research
 
-* Internet of Things and AIoT
-* 6TiSCH and TSCH-based networks
-* Low-power and reliable wireless communication
-* Scheduling and resource allocation
-* Mobility-aware networking
-* Next-generation IoT systems
-
-## Research Projects
-
-The website presents my ongoing and completed research projects, including:
-
-* **ASCP** — Autonomous Scheduling and Cell Provisioning
-* **TARA** — Topology-Aware Rank Allocation
-* **ASTAR** — Adaptive Scheduling for TSCH-Based Networks
-* **PMAS** — Predictive Mobility-Aware Scheduling for 6TiSCH IoT Networks
+* **PfDHFR Fitness Landscape** — epistatic network constraints shaping predictable
+  antifolate resistance in *Plasmodium falciparum* dihydrofolate reductase (bioRxiv 2026)
+* **DHPS Evolvability** — a novel evolutionarily critical substructure in dihydropteroate
+  synthase (Int. J. Biological Macromolecules, 2025)
+* **MUC1-C/ED ADC Design** — structural insight into MUC1-C/ED mutations for
+  antibody-drug conjugate design (Biochem. Biophys. Res. Commun., 2025)
+* **RL for Adaptive Evolution** — reinforcement learning for adaptive mutational
+  pathway modelling (ongoing)
+* **GNNs for Protein–Ligand Binding** — graph neural networks for interaction
+  prediction (ongoing)
 
 ## Website Contents
 
 The website includes:
 
-* Research profile
-* Publications
-* Research projects
-* Academic experience
-* Awards and achievements
-* Professional and social links
+* Research profile and biography
+* Publications and research contributions
+* Featured research projects
+* Research experience and teaching
+* Research laboratories
+* Technical skills
+* Education, fellowships, and awards
 * Contact information
 
 ## Technologies Used
@@ -47,8 +49,9 @@ The website includes:
 
 ## Contact
 
-For research collaboration or academic enquiries, please visit the contact section of the website.
+For research collaboration or academic enquiries, please visit the contact section
+of the website.
 
 ---
 
-© Raziur Rahman. All rights reserved.
+© Danny Muzata. All rights reserved.

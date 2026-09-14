@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rahmanraziur.github.io/sitemap.xml
+Sitemap: https://danmuzata.github.io/sitemap.xml
