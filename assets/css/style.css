@@ -861,8 +861,8 @@ footer {
 }
 
 .quote-photo {
-  width: 44px;
-  height: 44px;
+  width: 58px;
+  height: 58px;
   border-radius: 999px;
   object-fit: cover;
   border: 1px solid var(--line-strong);
@@ -1106,6 +1106,7 @@ footer {
   gap: 7px;
   overflow-x: auto;
   padding-bottom: 4px;
+  padding-right: 18px;
   margin-right: -4px;
 }
 .hero-badges::-webkit-scrollbar { height: 4px; }
