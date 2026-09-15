@@ -234,7 +234,7 @@ nav a:hover {
 /* ---------- section rhythm ---------- */
 
 section {
-  max-width: 1180px;
+  max-width: 1400px;
   margin: auto;
   padding: 44px 24px;
 }
@@ -275,7 +275,7 @@ section > h2 {
   margin-bottom: 18px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
-  max-width: 1180px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -514,7 +514,7 @@ canvas {
 /* ---------- contact maps ---------- */
 
 .maps-grid {
-  max-width: 1180px;
+  max-width: 1400px;
   margin: 1.4rem auto 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -613,7 +613,7 @@ footer {
   display: flex;
   flex-direction: column;
   padding: 64px 40px 56px;
-  max-width: 1320px;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
   border-bottom: 1px solid var(--line);
@@ -1247,7 +1247,7 @@ body { padding-right: calc(var(--quotes-w) + var(--quotes-inset) + 8px); }
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   margin: 0 auto 2rem;
-  max-width: 1180px;
+  max-width: 1400px;
 }
 .research-figure--row {
   max-width: none;
