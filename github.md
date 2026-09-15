@@ -113,3 +113,41 @@ those specific commands.
   `ssh-agent` (e.g. via `ssh-add` in a regular interactive shell, or a
   `keychain`/`gnome-keyring` integration) so future sessions don't need to
   repeat steps 4–6.
+
+## Making day-to-day pushes not require any of this (done 2026-09-15)
+
+Two changes were made so a normal `git push origin main` "just works" from
+any new terminal, without manually exporting anything:
+
+1. **Fixed the OpenSSL mismatch for git specifically**, without touching the
+   shell's `LD_LIBRARY_PATH` globally (which would've broken other tools
+   that depend on the `bioatlas` conda env):
+   ```
+   git config --global core.sshCommand "env -u LD_LIBRARY_PATH ssh"
+   ```
+2. **Auto-export the agent socket in every new interactive shell**, added to
+   the bottom of `~/.bashrc`:
+   ```bash
+   export SSH_AUTH_SOCK=/tmp/danny-git-ssh-agent.sock
+   if ! env -u LD_LIBRARY_PATH ssh-add -l >/dev/null 2>&1; then
+     echo "note: git-push SSH agent isn't running/unlocked — see ~/.bashrc for the two commands to restart it" >&2
+   fi
+   ```
+
+With both in place, a fresh terminal only ever needs:
+```bash
+git add -A
+git commit -m "..."
+git push origin main
+```
+
+**This breaks after a reboot** (or if the agent process is killed) — `/tmp`
+and the agent process don't survive that. When it does, `.bashrc` will print
+a note on login; fix it with the same two commands as steps 4–5 above:
+```bash
+ssh-agent -a /tmp/danny-git-ssh-agent.sock
+env -u LD_LIBRARY_PATH SSH_AUTH_SOCK=/tmp/danny-git-ssh-agent.sock ssh-add ~/.ssh/id_ed25519
+```
+This is expected, not a bug — the key's passphrase intentionally isn't
+stored anywhere, so it has to be re-entered (by hand, into the terminal)
+once per agent lifetime.
