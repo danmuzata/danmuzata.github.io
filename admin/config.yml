@@ -3,8 +3,7 @@ backend:
   repo: danmuzata/danmuzata.github.io
   branch: main
   # Token-exchange relay for GitHub OAuth login — see admin/README.md for setup.
-  # Until this is deployed, the admin login screen will not work.
-  base_url: https://REPLACE-WITH-YOUR-OAUTH-RELAY-URL
+  base_url: https://danmuzata-cms-auth.muzatadanny.workers.dev
   auth_endpoint: auth
 
 # Only accounts with write access to the repo can ever log in successfully —

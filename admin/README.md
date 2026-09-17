@@ -6,6 +6,13 @@ publish, and it commits straight to the repo. Only GitHub accounts with
 write access to this repo can ever log in successfully; GitHub enforces that
 during login itself.
 
+**Status (2026-09-17): fully set up and live.** The Worker is deployed at
+`https://danmuzata-cms-auth.muzatadanny.workers.dev`, both secrets are set,
+`admin/config.yml`'s `base_url` points at it, and the GitHub OAuth App's
+redirect URI points back at `<worker-url>/callback`. The steps below are
+kept as a reference for redeploying the Worker (e.g. if it's ever deleted)
+or setting this up again for a different repo.
+
 What's already built (no action needed):
 - `admin/index.html` / `admin/config.yml` — the CMS itself and its schema
   for the Opportunities list
