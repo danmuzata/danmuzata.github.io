@@ -33,7 +33,7 @@ collections:
               - name: type
                 label: Type
                 widget: select
-                options: [Scholarship, Fellowship, Workshop, Grant, Job, Other]
+                options: [Scholarship, Fellowship, "PhD Positions", "Postdoc Positions", Workshop, Grant, Job, Other]
                 default: Scholarship
               - name: image
                 label: Photo

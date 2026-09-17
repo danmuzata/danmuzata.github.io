@@ -1365,3 +1365,4 @@ body { padding-right: calc(var(--quotes-w) + var(--quotes-inset) + 8px); }
 .work-status.status-closing { color: var(--amber); }
 .work-status.status-closed { color: var(--ink-faint); }
 .opportunity-card:has(.status-closed) { opacity: 0.6; }
+.opportunity-card p { white-space: pre-line; }
