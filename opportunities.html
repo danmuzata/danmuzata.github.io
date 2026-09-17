@@ -101,6 +101,7 @@
     </button>
     <form id="searchForm" class="search-form" role="search" hidden>
       <input id="searchInput" type="search" placeholder="Search this page&hellip;" aria-label="Search this page">
+      <div id="searchStatus" class="search-status" hidden></div>
     </form>
   </div>
 
@@ -230,10 +231,91 @@
 })();
 </script>
 
+
+<script>
+(function () {
+  var LOCAL_SELECTOR = "main h1, main h2, main h3, main p, main li";
+  var INDEX_PATH = "data/search-index.json";
+
+  function clearHighlights() {
+    document.querySelectorAll(".search-hit").forEach(function (el) { el.classList.remove("search-hit"); });
+  }
+
+  function tryLocalHighlight(query) {
+    var candidates = document.querySelectorAll(LOCAL_SELECTOR);
+    for (var i = 0; i < candidates.length; i++) {
+      var el = candidates[i];
+      if (el.textContent.toLowerCase().indexOf(query) !== -1) {
+        el.classList.add("search-hit");
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function onLoadQuery() {
+    var params = new URLSearchParams(window.location.search);
+    var q = params.get("q");
+    if (!q) return;
+    setTimeout(function () {
+      tryLocalHighlight(q.trim().toLowerCase());
+      history.replaceState(null, "", window.location.pathname + window.location.hash);
+    }, 60);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", onLoadQuery);
+  } else {
+    onLoadQuery();
+  }
+
+  window.__runSiteSearch = function (rawQuery, opts) {
+    var query = rawQuery.trim().toLowerCase();
+    clearHighlights();
+    var statusEl = opts && opts.statusEl;
+    if (statusEl) statusEl.hidden = true;
+    if (!query) return;
+
+    if (tryLocalHighlight(query)) {
+      if (opts && opts.onFound) opts.onFound();
+      return;
+    }
+
+    fetch(INDEX_PATH)
+      .then(function (r) { return r.json(); })
+      .then(function (pages) {
+        var here = window.location.pathname;
+        var match = pages.find(function (p) {
+          if (!p.text || p.text.toLowerCase().indexOf(query) === -1) return false;
+          try { return new URL(p.url).pathname !== here; } catch (e) { return true; }
+        });
+        if (match) {
+          var dest = new URL(match.url).pathname;
+          window.location.href = dest + "?q=" + encodeURIComponent(rawQuery.trim());
+          return;
+        }
+        if (statusEl) {
+          statusEl.textContent = "No results found anywhere on the site.";
+          statusEl.hidden = false;
+        }
+        if (opts && opts.onNotFound) opts.onNotFound();
+      })
+      .catch(function () {
+        if (statusEl) {
+          statusEl.textContent = "Search index unavailable right now.";
+          statusEl.hidden = false;
+        }
+      });
+  };
+})();
+</script>
+
 <script>
 const searchToggle = document.getElementById("searchToggle");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
+const searchStatus = document.getElementById("searchStatus");
 
 searchToggle.addEventListener("click", (e) => {
   e.stopPropagation();
@@ -251,30 +333,16 @@ searchForm.addEventListener("click", (e) => e.stopPropagation());
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  runSiteSearch(searchInput.value);
-});
-
-function runSiteSearch(rawQuery) {
-  const query = rawQuery.trim().toLowerCase();
-  document.querySelectorAll(".search-hit").forEach(el => el.classList.remove("search-hit"));
-  if (!query) return;
-
-  const candidates = document.querySelectorAll("main h1, main h2, main h3, main p, main li");
-
-  for (const el of candidates) {
-    if (el.textContent.toLowerCase().includes(query)) {
-      el.classList.add("search-hit");
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
+  window.__runSiteSearch(searchInput.value, {
+    statusEl: searchStatus,
+    onFound: () => {
       searchInput.blur();
       setTimeout(() => { searchForm.hidden = true; }, 200);
-      return;
     }
-  }
-
-  searchInput.style.borderColor = "var(--amber)";
-  setTimeout(() => { searchInput.style.borderColor = ""; }, 900);
-}
+  });
+});
 </script>
+
 
 
 </body>

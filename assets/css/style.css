@@ -229,6 +229,19 @@ nav a:hover {
 }
 .search-form input:focus { outline: none; border-color: var(--azure); }
 
+.search-status {
+  margin: 6px 0 0;
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  background: var(--paper-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(0, 32, 77, 0.12);
+}
+.search-status[hidden] { display: none; }
+
 .search-hit { outline: 2px solid var(--amber); outline-offset: 4px; border-radius: 2px; }
 
 /* ---------- section rhythm ---------- */
