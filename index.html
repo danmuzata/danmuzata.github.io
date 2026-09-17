@@ -1218,15 +1218,37 @@ document.querySelectorAll(".resume-tab").forEach(tab => {
   var LOCAL_SELECTOR = "section h2, section h3, section p, section li, .quote-card blockquote, .highlight-slide-body h3, .highlight-slide-body p";
   var INDEX_PATH = "data/search-index.json";
 
+  function normalize(s) {
+    return (s || "")
+      .toLowerCase()
+      .replace(/ph\.?\s*d\.?/g, "phd")
+      .replace(/post[\s-]?doc(toral)?/g, "postdoc")
+      .replace(/[^a-z0-9\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function queryTerms(rawQuery) {
+    return normalize(rawQuery).split(" ").filter(Boolean).map(function (w) {
+      return (w.length > 4 && w.charAt(w.length - 1) === "s") ? w.slice(0, -1) : w;
+    });
+  }
+
+  function textHasAllTerms(text, terms) {
+    if (!terms.length) return false;
+    var normalized = normalize(text);
+    return terms.every(function (t) { return normalized.indexOf(t) !== -1; });
+  }
+
   function clearHighlights() {
     document.querySelectorAll(".search-hit").forEach(function (el) { el.classList.remove("search-hit"); });
   }
 
-  function tryLocalHighlight(query) {
+  function tryLocalHighlight(terms) {
     var candidates = document.querySelectorAll(LOCAL_SELECTOR);
     for (var i = 0; i < candidates.length; i++) {
       var el = candidates[i];
-      if (el.textContent.toLowerCase().indexOf(query) !== -1) {
+      if (textHasAllTerms(el.textContent, terms)) {
         el.classList.add("search-hit");
         el.scrollIntoView({ behavior: "smooth", block: "center" });
         return true;
@@ -1240,7 +1262,7 @@ document.querySelectorAll(".resume-tab").forEach(tab => {
     var q = params.get("q");
     if (!q) return;
     setTimeout(function () {
-      tryLocalHighlight(q.trim().toLowerCase());
+      tryLocalHighlight(queryTerms(q));
       history.replaceState(null, "", window.location.pathname + window.location.hash);
     }, 60);
   }
@@ -1252,13 +1274,13 @@ document.querySelectorAll(".resume-tab").forEach(tab => {
   }
 
   window.__runSiteSearch = function (rawQuery, opts) {
-    var query = rawQuery.trim().toLowerCase();
+    var terms = queryTerms(rawQuery);
     clearHighlights();
     var statusEl = opts && opts.statusEl;
     if (statusEl) statusEl.hidden = true;
-    if (!query) return;
+    if (!terms.length) return;
 
-    if (tryLocalHighlight(query)) {
+    if (tryLocalHighlight(terms)) {
       if (opts && opts.onFound) opts.onFound();
       return;
     }
@@ -1268,7 +1290,7 @@ document.querySelectorAll(".resume-tab").forEach(tab => {
       .then(function (pages) {
         var here = window.location.pathname;
         var match = pages.find(function (p) {
-          if (!p.text || p.text.toLowerCase().indexOf(query) === -1) return false;
+          if (!p.text || !textHasAllTerms(p.text, terms)) return false;
           try { return new URL(p.url).pathname !== here; } catch (e) { return true; }
         });
         if (match) {

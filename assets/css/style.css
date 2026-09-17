@@ -1329,53 +1329,130 @@ body { padding-right: calc(var(--quotes-w) + var(--quotes-inset) + 8px); }
   .project-hero { padding: 44px 20px 30px; }
 }
 
-/* ---------- opportunities: dynamic list rendered from data/opportunities.json ---------- */
+/* ---------- opportunities: compact thumbnails that expand in place ---------- */
 
 .opportunities-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
   max-width: 1400px;
   margin: 0 auto;
+  align-items: start;
 }
-.opportunities-grid .card { max-width: none; margin: 0; }
+.opportunities-grid .card { max-width: none; margin: 0; padding: 0; overflow: hidden; }
+.opportunity-card.is-expanded { grid-column: 1 / -1; }
+
+.opportunity-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  background: none;
+  border: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+}
+.opportunity-summary:hover { background: var(--azure-wash); }
 
 .opportunity-image {
+  flex: 0 0 auto;
   display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
+  width: 60px;
+  height: 60px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: 2px;
-  margin-bottom: 1rem;
+  border-radius: 3px;
   background: var(--paper-sunken);
   border: 1px solid var(--line);
 }
 .opportunity-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+.opportunity-summary-text { flex: 1 1 auto; min-width: 0; }
+
 .opportunity-meta {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 0.5rem;
+  gap: 0.6rem;
+  margin-bottom: 0.3rem;
 }
 .opportunity-type {
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.64rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
-.opportunity-deadline {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-  margin: 0 0 0.6rem;
+.opportunity-summary-text h2 {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
-.opportunity-link { margin: 0.8rem 0 0; }
-.opportunity-link a { font-size: 0.9rem; }
+.opportunity-deadline {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+}
+
+.opportunity-toggle {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+.opportunity-toggle::before,
+.opportunity-toggle::after {
+  content: "";
+  position: absolute;
+  background: var(--azure);
+  top: 50%;
+  left: 50%;
+}
+.opportunity-toggle::before { width: 10px; height: 1.4px; transform: translate(-50%, -50%); }
+.opportunity-toggle::after { width: 1.4px; height: 10px; transform: translate(-50%, -50%); transition: opacity 0.2s ease; }
+.opportunity-summary[aria-expanded="true"] .opportunity-toggle::after { opacity: 0; }
+
+.opportunity-details {
+  padding: 0 1.1rem 1.1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+  margin-top: -1px;
+}
+.opportunity-details p { white-space: pre-line; }
+
+.opportunity-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.9rem;
+  flex-wrap: wrap;
+}
+.opportunity-link { font-size: 0.9rem; }
+.opportunity-share {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--paper-sunken);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+.opportunity-share:hover { color: var(--azure); border-color: var(--azure); }
 
 .work-status.status-open { color: var(--azure); }
 .work-status.status-closing { color: var(--amber); }
 .work-status.status-closed { color: var(--ink-faint); }
 .opportunity-card:has(.status-closed) { opacity: 0.6; }
-.opportunity-card p { white-space: pre-line; }
