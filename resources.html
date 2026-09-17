@@ -113,6 +113,10 @@
     <a href="https://orcid.org/0000-0003-0023-9233" target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="Catch me on ORCID"><img src="assets/images/id-cropped.png" alt="" class="icon-orcid"></a>
     <a href="https://github.com/danmuzata" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="Catch me on GitHub"><img src="assets/images/github-icon.png" alt=""></a>
   </div>
+
+  <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <aside class="quotes-rail" aria-label="Quotes from scientists">
@@ -317,6 +321,7 @@
   </div>
 </aside>
 
+
 <main>
 <div class="project-hero">
 
@@ -337,6 +342,7 @@
   </div>
 
 </div>
+
 
 <section>
 
@@ -497,6 +503,32 @@
 </script>
 
 <script>
+const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+const primaryNav = document.querySelector("nav[aria-label=\"Primary navigation\"]");
+
+if (mobileMenuToggle && primaryNav) {
+  mobileMenuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const open = !primaryNav.classList.contains("nav-open");
+    primaryNav.classList.toggle("nav-open", open);
+    mobileMenuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  primaryNav.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      primaryNav.classList.remove("nav-open");
+      mobileMenuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (primaryNav.classList.contains("nav-open") && !primaryNav.contains(e.target)) {
+      primaryNav.classList.remove("nav-open");
+      mobileMenuToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
 const searchToggle = document.getElementById("searchToggle");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");

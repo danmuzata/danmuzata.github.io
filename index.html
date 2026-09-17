@@ -149,6 +149,10 @@
     <a href="https://orcid.org/0000-0003-0023-9233" target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="Catch me on ORCID"><img src="assets/images/id-cropped.png" alt="" class="icon-orcid"></a>
     <a href="https://github.com/danmuzata" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="Catch me on GitHub"><img src="assets/images/github-icon.png" alt=""></a>
   </div>
+
+  <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <aside class="quotes-rail" aria-label="Quotes from scientists">
@@ -353,6 +357,7 @@
   </div>
 </aside>
 
+
 <header class="hero">
 
   <div class="hero-top">
@@ -404,6 +409,45 @@
   </div>
 
 </header>
+
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card" data-aos="fade-up">
+    <p>
+      I am a biomedical data scientist with about three years of interdisciplinary
+      research experience spanning infectious diseases, molecular biology, bioinformatics,
+      and computational biology. My work has evolved from molecular epidemiology and
+      phylogenetic analysis of pathogens toward questions in protein evolution, structural
+      biology, and antimicrobial resistance — involving sequence analysis, molecular
+      modelling, molecular dynamics, and biological network analysis. I have also explored
+      graph-based machine learning for protein&ndash;ligand interactions and reinforcement
+      learning for adaptive evolution. I'm interested in building on this foundation through
+      comparative genomics, multi-omics, and data-driven approaches that connect biological
+      questions with computational method development.
+    </p>
+
+    <p>
+      This research is carried out at BITS Pilani, Hyderabad Campus, in the laboratory of
+      <a href="https://sites.google.com/view/evosysbiophysics/home" target="_blank" rel="noopener noreferrer">Dr. Sourav Chowdhury</a> (Dept. of Biological Sciences, Evolutionary Systems Biophysics),
+      with a parallel collaboration in the laboratory of <a href="https://www.prajnaupadhyay.com/" target="_blank" rel="noopener noreferrer">Dr. Prajna D. Upadhyay</a> (Dept. of
+      CSIS, Machine Learning &amp; AI for Computational Biology).
+    </p>
+
+    <p>
+      Originally from Lusaka, Zambia — currently based in Hyderabad, India.
+    </p>
+  </div>
+</section>
+
+
+
+<div class="contour" aria-hidden="true">
+  <svg viewBox="0 0 1200 30" preserveAspectRatio="none">
+    <path d="M0,16 Q100,4 200,16 T400,16 T600,16 T800,16 T1000,16 T1200,16"/>
+    <path d="M0,22 Q100,10 200,22 T400,22 T600,22 T800,22 T1000,22 T1200,22" opacity="0.55"/>
+  </svg>
+</div>
 
 <section id="research-highlights">
   <h2>Research Highlights</h2>
@@ -473,44 +517,6 @@
         <p>Reinforcement learning over mutational pathways in protein fitness landscapes.</p>
       </span>
     </a>
-  </div>
-</section>
-
-
-
-<div class="contour" aria-hidden="true">
-  <svg viewBox="0 0 1200 30" preserveAspectRatio="none">
-    <path d="M0,16 Q100,4 200,16 T400,16 T600,16 T800,16 T1000,16 T1200,16"/>
-    <path d="M0,22 Q100,10 200,22 T400,22 T600,22 T800,22 T1000,22 T1200,22" opacity="0.55"/>
-  </svg>
-</div>
-
-<section id="about">
-  <h2>About Me</h2>
-  <div class="card" data-aos="fade-up">
-    <p>
-      I am a biomedical data scientist with about three years of interdisciplinary
-      research experience spanning infectious diseases, molecular biology, bioinformatics,
-      and computational biology. My work has evolved from molecular epidemiology and
-      phylogenetic analysis of pathogens toward questions in protein evolution, structural
-      biology, and antimicrobial resistance — involving sequence analysis, molecular
-      modelling, molecular dynamics, and biological network analysis. I have also explored
-      graph-based machine learning for protein&ndash;ligand interactions and reinforcement
-      learning for adaptive evolution. I'm interested in building on this foundation through
-      comparative genomics, multi-omics, and data-driven approaches that connect biological
-      questions with computational method development.
-    </p>
-
-    <p>
-      This research is carried out at BITS Pilani, Hyderabad Campus, in the laboratory of
-      <a href="https://sites.google.com/view/evosysbiophysics/home" target="_blank" rel="noopener noreferrer">Dr. Sourav Chowdhury</a> (Dept. of Biological Sciences, Evolutionary Systems Biophysics),
-      with a parallel collaboration in the laboratory of <a href="https://www.prajnaupadhyay.com/" target="_blank" rel="noopener noreferrer">Dr. Prajna D. Upadhyay</a> (Dept. of
-      CSIS, Machine Learning &amp; AI for Computational Biology).
-    </p>
-
-    <p>
-      Originally from Lusaka, Zambia — currently based in Hyderabad, India.
-    </p>
   </div>
 </section>
 
@@ -1315,6 +1321,32 @@ document.querySelectorAll(".resume-tab").forEach(tab => {
 </script>
 
 <script>
+const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+const primaryNav = document.querySelector("nav[aria-label=\"Primary navigation\"]");
+
+if (mobileMenuToggle && primaryNav) {
+  mobileMenuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const open = !primaryNav.classList.contains("nav-open");
+    primaryNav.classList.toggle("nav-open", open);
+    mobileMenuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  primaryNav.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      primaryNav.classList.remove("nav-open");
+      mobileMenuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (primaryNav.classList.contains("nav-open") && !primaryNav.contains(e.target)) {
+      primaryNav.classList.remove("nav-open");
+      mobileMenuToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
 const searchToggle = document.getElementById("searchToggle");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
