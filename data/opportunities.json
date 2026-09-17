@@ -46,6 +46,14 @@
       "image": "/assets/images/opportunities/1787039327680.jpg",
       "deadline": "2026-09-15",
       "link": "https://tuni.rekrytointi.com/paikat/index.php?jid=3143&key=&o=A_RJ&rspvt=no1zulllptwkgk4ossosgsockg0cs4"
+    },
+    {
+      "type": "Workshop",
+      "description": "🚀 𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐭𝐢𝐨𝐧𝐬 𝐍𝐨𝐰 𝐎𝐩𝐞𝐧 | ✨ 𝟑-𝐃𝐚𝐲 𝐇𝐚𝐧𝐝𝐬-𝐎𝐧 𝐎𝐧𝐥𝐢𝐧𝐞 𝐖𝐨𝐫𝐤𝐬𝐡𝐨𝐩: 𝐏𝐫𝐨𝐭𝐞𝐢𝐧–𝐋𝐢𝐠𝐚𝐧𝐝 𝐁𝐢𝐧𝐝𝐢𝐧𝐠 𝐀𝐟𝐟𝐢𝐧𝐢𝐭𝐲 𝐏𝐫𝐞𝐝𝐢𝐜𝐭𝐢𝐨𝐧 𝐰𝐢𝐭𝐡 𝐃𝐞𝐞𝐩 𝐋𝐞𝐚𝐫𝐧𝐢𝐧𝐠\n\nDeep learning is transforming drug discovery — but can you trust its binding affinity predictions? This mentor-guided workshop takes you through rigorous, code-driven labs using real bioactivity data from ChEMBL and BindingDB, so you learn to build models that hold up, and spot the ones that don't.\n\n𝐖𝐡𝐚𝐭 𝐲𝐨𝐮'𝐥𝐥 𝐰𝐨𝐫𝐤 𝐨𝐧:\n🧪 Molecular representations with RDKit: SMILES, fingerprints, molecular graphs, and 3D structures\n🕸️ Graph neural networks and DeepDTA-style architectures for protein–ligand interactions\n🔬 Run Boltz-2 for joint structure–affinity prediction on a real target, using a provided GPU server\n🧠 Audit published benchmarks for data leakage and learn why they often fail in practice\n📊 Analyze a full virtual screening campaign — ranking, enrichment, and comparison against baseline\n\n🎯 𝐈𝐝𝐞𝐚𝐥 𝐟𝐨𝐫 Master's and PhD students, postdocs and industry scientists\n\n📅 November 3, 6 & 9, 2026; 7:30 PM IST | 8:00 AM CST\n🐦 Early bird registrations open till October 10, 2026!",
+      "image": "/assets/images/opportunities/apply-board-role-ad.jpg",
+      "title": "𝟑-𝐃𝐚𝐲 𝐇𝐚𝐧𝐝𝐬-𝐎𝐧 𝐎𝐧𝐥𝐢𝐧𝐞 𝐖𝐨𝐫𝐤𝐬𝐡𝐨𝐩: 𝐏𝐫𝐨𝐭𝐞𝐢𝐧–𝐋𝐢𝐠𝐚𝐧𝐝 𝐁𝐢𝐧𝐝𝐢𝐧𝐠 𝐀𝐟𝐟𝐢𝐧𝐢𝐭𝐲 𝐏𝐫𝐞𝐝𝐢𝐜𝐭𝐢𝐨𝐧 𝐰𝐢𝐭𝐡 𝐃𝐞𝐞𝐩 𝐋𝐞𝐚𝐫𝐧𝐢𝐧𝐠",
+      "deadline": "2026-10-10",
+      "link": "https://docs.google.com/forms/d/e/1FAIpQLSes4NntBeEPHszrN3Ri_drIAIN94MWrKaFLnvrZXj-ydvZvHA/viewform"
     }
   ]
 }
