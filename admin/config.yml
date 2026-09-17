@@ -1,0 +1,58 @@
+backend:
+  name: github
+  repo: danmuzata/danmuzata.github.io
+  branch: main
+  # Token-exchange relay for GitHub OAuth login — see admin/README.md for setup.
+  # Until this is deployed, the admin login screen will not work.
+  base_url: https://REPLACE-WITH-YOUR-OAUTH-RELAY-URL
+  auth_endpoint: auth
+
+# Only accounts with write access to the repo can ever log in successfully —
+# GitHub itself enforces this during the OAuth step, regardless of who knows
+# this URL.
+publish_mode: simple
+media_folder: assets/images/uploads
+public_folder: assets/images/uploads
+
+collections:
+  - name: opportunities
+    label: Opportunities
+    label_singular: Opportunity
+    description: Scholarships, fellowships, workshops, and other opportunities shown on the Opportunities page.
+    files:
+      - name: opportunities
+        label: Opportunities List
+        file: data/opportunities.json
+        fields:
+          - name: items
+            label: Opportunities
+            label_singular: Opportunity
+            widget: list
+            summary: "{{fields.title}} — closes {{fields.deadline}}"
+            fields:
+              - { name: title, label: Title, widget: string }
+              - name: type
+                label: Type
+                widget: select
+                options: [Scholarship, Fellowship, Workshop, Grant, Job, Other]
+                default: Scholarship
+              - name: image
+                label: Photo
+                widget: image
+                required: false
+                media_folder: /assets/images/opportunities
+                public_folder: /assets/images/opportunities
+              - name: description
+                label: Description
+                widget: text
+              - name: deadline
+                label: Application Deadline
+                widget: datetime
+                date_format: "YYYY-MM-DD"
+                time_format: false
+                format: "YYYY-MM-DD"
+                hint: "Status (Open / Closing Soon / Closed) is computed automatically from this date — no need to set it manually."
+              - name: link
+                label: Link (application page, more info, etc.)
+                widget: string
+                required: false

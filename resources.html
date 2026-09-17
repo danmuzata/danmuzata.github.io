@@ -80,11 +80,38 @@
 <body>
 
 <nav aria-label="Primary navigation">
-  <a href="index.html">Danny Muzata</a>
-  <a href="index.html#research-areas">Research</a>
-  <a href="index.html#publications">Publications</a>
-  <a href="opportunities.html">Opportunities</a>
-  <a href="index.html#contact">Contact</a>
+  <a href="index.html#top" class="nav-brand" aria-label="Danny Muzata — home">
+    <img src="assets/images/nav-logo.png" alt="Danny Muzata signature logo">
+  </a>
+
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#research-areas">Research</a>
+    <a href="index.html#publications">Publications</a>
+    <a href="index.html#research-groups">Groups</a>
+    <a href="index.html#resume">Resume</a>
+    <a href="resources.html" aria-current="page">Resources</a>
+    <a href="opportunities.html">Opportunities</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+
+  <div class="nav-search">
+    <button id="searchToggle" type="button" aria-label="Search this site" title="Search">
+      <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="13.2" y1="13.2" x2="18" y2="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <form id="searchForm" class="search-form" role="search" hidden>
+      <input id="searchInput" type="search" placeholder="Search this page&hellip;" aria-label="Search this page">
+    </form>
+  </div>
+
+  <div class="nav-social" aria-label="Catch me on">
+    <a href="https://scholar.google.com/citations?user=PciYrvsAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Catch me on Google Scholar"><img src="assets/images/google-scholar.png" alt=""></a>
+    <a href="https://www.linkedin.com/in/danny-muzata" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="Catch me on LinkedIn"><img src="assets/images/IN.png" alt=""></a>
+    <a href="https://x.com/DMMuzata" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="Catch me on X"><img src="assets/images/X.png" alt=""></a>
+    <a href="https://www.facebook.com/danny.muzata" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Catch me on Facebook"><img src="assets/images/facebook.png" alt=""></a>
+    <a href="https://orcid.org/0000-0003-0023-9233" target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="Catch me on ORCID"><img src="assets/images/id-cropped.png" alt="" class="icon-orcid"></a>
+    <a href="https://github.com/danmuzata" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="Catch me on GitHub"><img src="assets/images/github-icon.png" alt=""></a>
+  </div>
 </nav>
 
 <main>
@@ -162,6 +189,54 @@
 <footer>
   © 2026 <a href="index.html" rel="author">Danny Muzata</a>
 </footer>
+
+
+<script>
+const searchToggle = document.getElementById("searchToggle");
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+
+searchToggle.addEventListener("click", (e) => {
+  e.stopPropagation();
+  searchForm.hidden = !searchForm.hidden;
+  if (!searchForm.hidden) searchInput.focus();
+});
+
+document.addEventListener("click", (e) => {
+  if (!searchForm.hidden && !searchForm.contains(e.target)) {
+    searchForm.hidden = true;
+  }
+});
+
+searchForm.addEventListener("click", (e) => e.stopPropagation());
+
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  runSiteSearch(searchInput.value);
+});
+
+function runSiteSearch(rawQuery) {
+  const query = rawQuery.trim().toLowerCase();
+  document.querySelectorAll(".search-hit").forEach(el => el.classList.remove("search-hit"));
+  if (!query) return;
+
+  const candidates = document.querySelectorAll("main h1, main h2, main h3, main p, main li");
+
+  for (const el of candidates) {
+    if (el.textContent.toLowerCase().includes(query)) {
+      el.classList.add("search-hit");
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      searchInput.blur();
+      setTimeout(() => { searchForm.hidden = true; }, 200);
+      return;
+    }
+  }
+
+  searchInput.style.borderColor = "var(--amber)";
+  setTimeout(() => { searchInput.style.borderColor = ""; }, 900);
+}
+</script>
+
 
 </body>
 </html>
