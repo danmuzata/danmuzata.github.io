@@ -474,6 +474,7 @@ nav {
   border: 1px solid transparent;
 }
 .pub-status.published { color: var(--azure); border-color: var(--azure-wash-strong); background: var(--azure-wash); }
+.pub-status.accepted { color: var(--paper-raised); border-color: var(--azure-deep); background: var(--azure-deep); }
 .pub-status.preprint { color: var(--amber); border-color: var(--amber-wash); background: var(--amber-wash); }
 .pub-status.review { color: var(--seq-blue); border-color: var(--seq-blue-wash); background: var(--seq-blue-wash); }
 .pub-status.chapter { color: var(--ink-soft); border-color: var(--line); background: var(--paper-sunken); }
